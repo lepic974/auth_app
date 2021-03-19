@@ -4,8 +4,13 @@ import 'package:auth_app/screens/Guest.dart';
 //import 'screens/guest/Auth.dart';
 //import 'screens/guest/Term.dart';
 //import 'screens/guest/Password.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  Firebase.initializeApp();
+
   runApp(App());
 }
 

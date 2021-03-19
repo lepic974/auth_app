@@ -72,7 +72,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       TextFormField(
                         onChanged: (value) => setState(() => _email = value),
                         validator: (value) =>
-                            value.isEmpty || !emailRegex.hasMatch(value)
+                            value.isEmpty || !emailRegex.hasMatch(_email)
                                 ? 'Please enter a valid email'
                                 : null,
                         decoration: InputDecoration(
@@ -102,6 +102,12 @@ class _AuthScreenState extends State<AuthScreen> {
                                   widget.onChangedStep(1);
                                 }
                               },
+
+                        // onPressed: () {
+                        //   if (_formKey.currentState.validate()) {
+                        //     print(_email);
+                        //   }
+                        // },
                         child: Text(
                           'continue'.toUpperCase(),
                           style: TextStyle(

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "831768569613",
+    "project_id": "auth-app-424a9",
+    "storage_bucket": "auth-app-424a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831768569613:android:c30eebf9d71fbd2f13f244",
+        "android_client_info": {
+          "package_name": "com.yanipel.authapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831768569613-2raoccmhrtafq0eqaoea69muf2otlgsb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yanipel.authapp",
+            "certificate_hash": "3852f7879bb1908ac4ae067fa99628b08fb52ade"
+          }
+        },
+        {
+          "client_id": "831768569613-d0mjaj1s2ejoo0ut1tilmdfuuek1c574.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZiDhf_2HHj3CYNjEQ21wzRVOdtWrc7so"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831768569613-d0mjaj1s2ejoo0ut1tilmdfuuek1c574.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
