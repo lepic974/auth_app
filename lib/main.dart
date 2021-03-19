@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'screens/guest/Auth.dart';
-import 'screens/guest/Term.dart';
+
+import 'package:auth_app/screens/Guest.dart';
+//import 'screens/guest/Auth.dart';
+//import 'screens/guest/Term.dart';
+//import 'screens/guest/Password.dart';
 
 void main() {
   runApp(App());
@@ -11,9 +14,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      home: TermScreen(),
       debugShowCheckedModeBanner: false,
+      title: 'Auth App',
+      home: GuestScreen(),
     );
   }
 }
