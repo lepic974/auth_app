@@ -6,10 +6,10 @@ import 'package:auth_app/screens/Guest.dart';
 //import 'screens/guest/Password.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  Firebase.initializeApp();
+  await Firebase.initializeApp();
 
   runApp(App());
 }
