@@ -4,6 +4,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 class UserService {
   FirebaseAuth _auth = FirebaseAuth.instance;
 
+  Stream<UserModel> get user {
+    return _auth.authStateChanges().asyncMap((user) => UserModel(
+          uid: user.uid,
+          email: user.email,
+        ));
+  }
+
   Future<UserModel> auth(UserModel userModel) async {
     UserCredential userCredential;
 
@@ -21,5 +28,9 @@ class UserService {
 
     userModel.setUid = userCredential.user.uid;
     return userModel;
+  }
+
+  Future<void> logout() async {
+    await _auth.signOut();
   }
 }

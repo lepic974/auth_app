@@ -1,3 +1,5 @@
+import 'package:auth_app/screens/dashboard/home.dart';
+import 'package:auth_app/services/UserService.dart';
 import 'package:flutter/material.dart';
 
 import 'package:auth_app/screens/Guest.dart';
@@ -15,13 +17,34 @@ void main() async {
 }
 
 class App extends StatelessWidget {
+  UserService _userService = UserService();
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Auth App',
-      home: GuestScreen(),
+      home: StreamBuilder(
+        stream: _userService.user,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.active) {
+            if (snapshot.hasData) {
+              return HommeScreen();
+            }
+
+            return GuestScreen();
+          }
+          //print(snapshot.connectionState);
+
+          return SafeArea(
+              child: Scaffold(
+            body: Center(
+              child: Text('Loading...'),
+            ),
+          ));
+        },
+      ),
     );
   }
 }
