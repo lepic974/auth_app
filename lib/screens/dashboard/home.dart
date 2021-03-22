@@ -2,12 +2,12 @@ import 'package:auth_app/screens/Guest.dart';
 import 'package:auth_app/services/UserService.dart';
 import 'package:flutter/material.dart';
 
-class HommeScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  _HommeScreenState createState() => _HommeScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HommeScreenState extends State<HommeScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   UserService _userService = UserService();
 
   @override

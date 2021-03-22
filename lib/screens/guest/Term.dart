@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class TermScreen extends StatefulWidget {
   final Function(int) onChangedStep;
+  final String terms;
 
   const TermScreen({
     Key key,
     this.onChangedStep,
+    this.terms,
   }) : super(key: key);
 
   @override
@@ -68,7 +70,7 @@ class _TermScreenState extends State<TermScreen> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n\nNullam a enim fringilla, hendrerit ex ac, suscipit augue. Quisque scelerisque pellentesque nulla, ac iaculis mauris. Integer a varius turpis, ut gravida justo. Curabitur ultricies lacus ut gravida pulvinar. Nunc ac faucibus tortor, ut ultrices tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam at lobortis velit. In tempor gravida velit, eu euismod arcu egestas mattis.\n\nSed sagittis eleifend dui, vel commodo purus iaculis a. Proin convallis diam massa, a sodales ipsum vestibulum at. Nullam non semper arcu. Sed urna eros, finibus quis vehicula eu, faucibus at risus. Nam suscipit facilisis dui, ac bibendum enim efficitur nec. Fusce hendrerit ipsum sit amet nulla sollicitudin volutpat. Phasellus tempor, nunc id porttitor faucibus, lectus neque tempor est, vitae iaculis diam felis sit amet ligula. In pellentesque enim ex, vel finibus justo eleifend luctus. Aliquam pellentesque massa ante, sit amet maximus diam mattis sit amet.\n\nSed sagittis eleifend dui, vel commodo purus iaculis a. Proin convallis diam massa, a sodales ipsum vestibulum at. Nullam non semper arcu. Sed urna eros, finibus quis vehicula eu, faucibus at risus. Nam suscipit facilisis dui, ac bibendum enim efficitur nec. Fusce hendrerit ipsum sit amet nulla sollicitudin volutpat. Phasellus tempor, nunc id porttitor faucibus, lectus neque tempor est, vitae iaculis diam felis sit amet ligula. In pellentesque enim ex, vel finibus justo eleifend luctus. Aliquam pellentesque massa ante, sit amet maximus diam mattis sit amet.\n\nSed sagittis eleifend dui, vel commodo purus iaculis a. Proin convallis diam massa, a sodales ipsum vestibulum at. Nullam non semper arcu. Sed urna eros, finibus quis vehicula eu, faucibus at risus. Nam suscipit facilisis dui, ac bibendum enim efficitur nec. Fusce hendrerit ipsum sit amet nulla sollicitudin volutpat. Phasellus tempor, nunc id porttitor faucibus, lectus neque tempor est, vitae iaculis diam felis sit amet ligula. In pellentesque enim ex, vel finibus justo eleifend luctus. Aliquam pellentesque massa ante, sit amet maximus diam mattis sit amet.\n\nDonec porttitor vestibulum ullamcorper.',
+                        widget.terms,
                       ),
                     ],
                   ),

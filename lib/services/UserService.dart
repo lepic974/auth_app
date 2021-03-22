@@ -1,8 +1,16 @@
 import 'package:auth_app/models/UserModel.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+
+enum StateRegistration {
+  COMPLETE,
+  IN_PROGRESS,
+}
 
 class UserService {
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
   Stream<UserModel> get user {
     return _auth.authStateChanges().asyncMap((user) => UserModel(
@@ -26,11 +34,46 @@ class UserService {
       );
     }
 
+    await mailinglist(
+      userModel.email,
+      stateRegistration: StateRegistration.COMPLETE,
+    );
+
     userModel.setUid = userCredential.user.uid;
     return userModel;
   }
 
   Future<void> logout() async {
     await _auth.signOut();
+  }
+
+  Future<StateRegistration> mailinglist(
+    String email, {
+    StateRegistration stateRegistration,
+  }) async {
+    DocumentReference documentReference =
+        _firebaseFirestore.collection('mailinglist').doc(email);
+
+    DocumentSnapshot documentSnapshot = await documentReference.get();
+
+    if (stateRegistration != null) {
+      await _firebaseFirestore.collection('mailinglist').doc(email).set({
+        'state': stateRegistration.toString(),
+      });
+
+      return stateRegistration;
+    }
+
+    if (documentSnapshot.exists) {
+      String state = documentSnapshot.get('state');
+
+      return StateRegistration.values
+          .firstWhere((element) => element.toString() == state);
+    }
+
+    await documentReference
+        .set({'state': StateRegistration.IN_PROGRESS.toString()});
+
+    return StateRegistration.IN_PROGRESS;
   }
 }

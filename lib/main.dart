@@ -1,4 +1,4 @@
-import 'package:auth_app/screens/dashboard/home.dart';
+import 'package:auth_app/screens/dashboard/Home.dart';
 import 'package:auth_app/services/UserService.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +30,7 @@ class App extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             if (snapshot.hasData) {
-              return HommeScreen();
+              return HomeScreen();
             }
 
             return GuestScreen();
